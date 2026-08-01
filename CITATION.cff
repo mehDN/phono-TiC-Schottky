@@ -1,0 +1,68 @@
+# GitHub / Zenodo-style citation metadata
+# https://citation-file-format.github.io/
+cff-version: 1.2.0
+message: >-
+  If you use this workflow or the underlying defect physics, please cite
+  the papers below and this software repository (see also CITATION.bib).
+type: software
+title: "phono-tic-schottky: Schottky formation free energy from phonopy and VASP for TiC"
+version: "1.0"
+date-released: "2026-08-01"
+url: "https://github.com/mehDN/phono-tic-schottky"
+repository-code: "https://github.com/mehDN/phono-tic-schottky"
+authors:
+  - family-names: Nourazar
+    given-names: Mehdi
+    orcid: "https://orcid.org/0000-0002-3726-9869"
+    email: mehdin@kth.se
+    affiliation: "Department of Materials Science and Engineering, KTH Royal Institute of Technology"
+keywords:
+  - phonopy
+  - VASP
+  - Schottky defect
+  - titanium carbide
+  - free energy
+  - harmonic phonons
+preferred-citation:
+  type: software
+  title: "phono-tic-schottky: Schottky formation free energy from phonopy and VASP for TiC"
+  authors:
+    - family-names: Nourazar
+      given-names: Mehdi
+      orcid: "https://orcid.org/0000-0002-3726-9869"
+  year: 2026
+  url: "https://github.com/mehDN/phono-tic-schottky"
+references:
+  - type: article
+    authors:
+      - family-names: Smirnova
+        given-names: Ekaterina
+      - family-names: Nourazar
+        given-names: Mehdi
+        orcid: "https://orcid.org/0000-0002-3726-9869"
+      - family-names: Korzhavyi
+        given-names: Pavel A.
+        orcid: "https://orcid.org/0000-0002-9920-5393"
+    title: "Internal structure of metal vacancies in cubic carbides"
+    journal: "Physical Review B"
+    year: 2024
+    month: 2
+    volume: "109"
+    issue: "6"
+    pages: "L060103"
+    doi: "10.1103/PhysRevB.109.L060103"
+  - type: article
+    authors:
+      - family-names: Nourazar
+        given-names: Mehdi
+        orcid: "https://orcid.org/0000-0002-3726-9869"
+      - family-names: Korzhavyi
+        given-names: Pavel Alexeevich
+        orcid: "https://orcid.org/0000-0002-9920-5393"
+    title: "Configuration of Schottky defects in transition metal carbides"
+    journal: "Acta Materialia"
+    year: 2026
+    month: 9
+    volume: "317"
+    pages: "122538"
+    doi: "10.1016/j.actamat.2026.122538"

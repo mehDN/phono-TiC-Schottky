@@ -571,6 +571,62 @@ block via `I_MPI_PIN_PROCESSOR_LIST`.
 The papers do **not** include phonon free-energy corrections; this workflow
 adds the harmonic vibrational piece needed for finite-\(T\) Schottky free energy.
 
+### 10.1 How to cite (BibTeX)
+
+Please cite the two background articles **and** this software repository when
+using the pipeline or publishing numbers obtained with it.
+
+| cite key | what |
+|----------|------|
+| `smirnova2024` | 2G reconstructed metal vacancy (PRB) |
+| `nourazar2026` | Schottky configuration / formation energies (Acta Materialia) |
+| `nourazar2026phono` | this GitHub workflow / code |
+
+Full file: **[`CITATION.bib`](CITATION.bib)**. GitHub metadata: **[`CITATION.cff`](CITATION.cff)**.
+
+```bibtex
+@article{smirnova2024,
+  author  = {Smirnova, Ekaterina and Nourazar, Mehdi and Korzhavyi, Pavel A.},
+  title   = {Internal structure of metal vacancies in cubic carbides},
+  journal = {Physical Review B},
+  volume  = {109},
+  number  = {6},
+  pages   = {L060103},
+  year    = {2024},
+  doi     = {10.1103/PhysRevB.109.L060103},
+  url     = {https://doi.org/10.1103/PhysRevB.109.L060103}
+}
+
+@article{nourazar2026,
+  author  = {Nourazar, Mehdi and Korzhavyi, Pavel Alexeevich},
+  title   = {Configuration of {Schottky} defects in transition metal carbides},
+  journal = {Acta Materialia},
+  volume  = {317},
+  pages   = {122538},
+  year    = {2026},
+  doi     = {10.1016/j.actamat.2026.122538},
+  url     = {https://doi.org/10.1016/j.actamat.2026.122538}
+}
+
+@software{nourazar2026phono,
+  author  = {Nourazar, Mehdi},
+  title   = {{phono-tic-schottky}: Schottky formation free energy from phonopy
+             and {VASP} for {TiC}},
+  year    = {2026},
+  url     = {https://github.com/mehDN/phono-tic-schottky},
+  note    = {Harmonic phonon free-energy corrections for the TiC Schottky pair}
+}
+```
+
+Plain-text:
+
+- E. Smirnova, M. Nourazar, and P. A. Korzhavyi, Phys. Rev. B **109**, L060103 (2024).  
+  https://doi.org/10.1103/PhysRevB.109.L060103
+- M. Nourazar and P. A. Korzhavyi, Acta Mater. **317**, 122538 (2026).  
+  https://doi.org/10.1016/j.actamat.2026.122538
+- M. Nourazar, *phono-tic-schottky* (2026),  
+  https://github.com/mehDN/phono-tic-schottky
+
 ---
 
 ## 11. Quick start (Metis)

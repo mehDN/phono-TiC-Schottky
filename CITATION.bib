@@ -1,0 +1,55 @@
+% =============================================================================
+% Citations for the TiC Schottky / phonopy workflow
+% Repository: https://github.com/mehDN/phono-tic-schottky
+%
+% Use these BibTeX entries when citing the scientific background papers and/or
+% this software. Suggested sets:
+%   - Physics of 2G metal vacancy & Schottky formula: smirnova2024 + nourazar2026
+%   - This code / workflow:           nourazar2026phono (software)
+% =============================================================================
+
+@article{smirnova2024,
+  author  = {Smirnova, Ekaterina and Nourazar, Mehdi and Korzhavyi, Pavel A.},
+  title   = {Internal structure of metal vacancies in cubic carbides},
+  journal = {Physical Review B},
+  volume  = {109},
+  number  = {6},
+  pages   = {L060103},
+  year    = {2024},
+  month   = {feb},
+  doi     = {10.1103/PhysRevB.109.L060103},
+  url     = {https://doi.org/10.1103/PhysRevB.109.L060103},
+  note    = {Reconstructed 2G ground-state metal vacancy (planar C--C dimer)}
+}
+
+@article{nourazar2026,
+  author  = {Nourazar, Mehdi and Korzhavyi, Pavel Alexeevich},
+  title   = {Configuration of {Schottky} defects in transition metal carbides},
+  journal = {Acta Materialia},
+  volume  = {317},
+  pages   = {122538},
+  year    = {2026},
+  month   = {sep},
+  doi     = {10.1016/j.actamat.2026.122538},
+  url     = {https://doi.org/10.1016/j.actamat.2026.122538},
+  note    = {Schottky formation energies and vacancy--vacancy interactions with reconstruction}
+}
+
+@software{nourazar2026phono,
+  author  = {Nourazar, Mehdi},
+  title   = {{phono-tic-schottky}: Schottky formation free energy from phonopy and {VASP} for {TiC}},
+  year    = {2026},
+  version = {1.0},
+  url     = {https://github.com/mehDN/phono-tic-schottky},
+  note    = {Harmonic phonon free-energy corrections for TiC Schottky pair
+             (nodef / cVac / 2G); Metis-oriented parallel VASP workflow}
+}
+
+% Alternative software form if your style file does not support @software:
+@misc{nourazar2026phono_misc,
+  author       = {Nourazar, Mehdi},
+  title        = {{phono-tic-schottky}: Schottky formation free energy from phonopy and {VASP} for {TiC}},
+  year         = {2026},
+  howpublished = {\url{https://github.com/mehDN/phono-tic-schottky}},
+  note         = {GitHub repository; harmonic phonon free-energy workflow}
+}

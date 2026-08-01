@@ -57,5 +57,56 @@ See **[WORKFLOW.md](WORKFLOW.md)** for physics, steps, and environment variables
 | `scripts/` | prepare, Metis parallel pool, Schottky table |
 | `templates/` | INCAR / KPOINTS / phonopy confs |
 | `docs/POTCAR.md` | how to obtain and install PAW POTCARs |
+| `CITATION.bib` | BibTeX for papers + this repository |
+| `CITATION.cff` | GitHub citation metadata |
 | `nodef/` `cVac/` `2G/` | structures + staged `disp_*/` (add your POTCAR) |
 | `results/` | Schottky tables |
+
+## How to cite
+
+If you use this workflow or the underlying defect physics, please cite:
+
+1. **Smirnova, Nourazar & Korzhavyi**, *Phys. Rev. B* **109**, L060103 (2024)  
+   — reconstructed **2G** metal-vacancy ground state.  
+   DOI: [10.1103/PhysRevB.109.L060103](https://doi.org/10.1103/PhysRevB.109.L060103)
+
+2. **Nourazar & Korzhavyi**, *Acta Materialia* **317**, 122538 (2026)  
+   — Schottky formation energies and vacancy interactions with reconstruction.  
+   DOI: [10.1016/j.actamat.2026.122538](https://doi.org/10.1016/j.actamat.2026.122538)
+
+3. **This repository** (software / workflow)  
+   — [https://github.com/mehDN/phono-tic-schottky](https://github.com/mehDN/phono-tic-schottky)
+
+Ready-to-paste BibTeX is in **[`CITATION.bib`](CITATION.bib)** (keys `smirnova2024`,
+`nourazar2026`, `nourazar2026phono`). GitHub also reads **[`CITATION.cff`](CITATION.cff)**
+(sidebar “Cite this repository”).
+
+```bibtex
+@article{smirnova2024,
+  author  = {Smirnova, Ekaterina and Nourazar, Mehdi and Korzhavyi, Pavel A.},
+  title   = {Internal structure of metal vacancies in cubic carbides},
+  journal = {Physical Review B},
+  volume  = {109},
+  number  = {6},
+  pages   = {L060103},
+  year    = {2024},
+  doi     = {10.1103/PhysRevB.109.L060103}
+}
+
+@article{nourazar2026,
+  author  = {Nourazar, Mehdi and Korzhavyi, Pavel Alexeevich},
+  title   = {Configuration of {Schottky} defects in transition metal carbides},
+  journal = {Acta Materialia},
+  volume  = {317},
+  pages   = {122538},
+  year    = {2026},
+  doi     = {10.1016/j.actamat.2026.122538}
+}
+
+@software{nourazar2026phono,
+  author  = {Nourazar, Mehdi},
+  title   = {{phono-tic-schottky}: Schottky formation free energy from phonopy and {VASP} for {TiC}},
+  year    = {2026},
+  url     = {https://github.com/mehDN/phono-tic-schottky}
+}
+```
