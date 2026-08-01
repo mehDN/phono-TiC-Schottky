@@ -6,10 +6,9 @@ VASP forces.
 
 ## Host
 
-**Run VASP on Metis only** (`metis.mse.kth.se`).  
-Do **not** run this pipeline on Leto. Scripts refuse hostname `*leto*`.
+**Run VASP on Cluster**
 
-Default parallel budget on Metis: **7 concurrent jobs × 8 MPI ranks = 56 cores**.
+Default parallel budget: **7 concurrent jobs × 8 MPI ranks = 56 cores**.
 
 ## POTCAR (required, not in this repo)
 
