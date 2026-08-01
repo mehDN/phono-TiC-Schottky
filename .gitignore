@@ -1,0 +1,37 @@
+# VASP runtime outputs (recomputed on Metis)
+**/WAVECAR
+**/CHGCAR
+**/CHG
+**/PROCAR
+**/EIGENVAL
+**/DOSCAR
+**/XDATCAR
+**/PCDAT
+**/IBZKPT
+**/OSZICAR
+**/OUTCAR
+**/vasprun.xml
+**/CONTCAR
+**/REPORT
+**/vaspout.h5
+**/*.vsz
+**/o.dat
+**/.vasp_exitcode
+**/local-*.out
+**/slurm-*.out
+**/core.*
+
+# Python / editor
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+*~
+.*.swp
+
+# Local batch logs (regenerated)
+results/local_runs/
+nohup.out
+
+# VASP PAW potentials (licensed — do not commit; see README / WORKFLOW § POTCAR)
+**/POTCAR

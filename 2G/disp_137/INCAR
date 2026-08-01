@@ -1,0 +1,20 @@
+SYSTEM = TiC phonopy finite-displacement forces
+PREC   = Accurate
+ENCUT  = 500
+EDIFF  = 1.0e-08
+IBRION = -1
+NSW    = 0
+NELM   = 200
+IALGO  = 38
+ISMEAR = 0
+SIGMA  = 0.05
+LREAL  = .FALSE.
+ADDGRID = .TRUE.
+LWAVE  = .FALSE.
+LCHARG = .FALSE.
+# Do NOT set IBRION=8 here (that is DFPT on a single structure).
+# Do NOT relax (NSW must stay 0).
+
+# Parallel (set by 02_prepare_vasp_jobs.sh for NPROC=8; wc_114 style)
+NPAR   = 2
+NSIM   = 4

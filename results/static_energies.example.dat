@@ -1,0 +1,7 @@
+# Example static total energies (eV) from phono_222 OUTCARs.
+# REPLACE with fresh single-points using templates/INCAR.static before publication.
+# structure   natom   TOTEN_eV
+nodef         64      -588.59548361
+cVac          63      -579.41447515
+2G            63      -574.37299057
+# E_DFT_Schottky = E_2G + E_cVac - (63/32)*E_nodef ≈ 5.0098 eV
