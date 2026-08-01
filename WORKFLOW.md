@@ -160,6 +160,8 @@ phono/
 │   └── run_demo_from_phono222.sh
 ├── docs/
 │   └── POTCAR.md                # how to obtain licensed PAW POTCARs
+├── CITATION.bib                 # BibTeX: papers + this repo
+├── CITATION.cff                 # GitHub “Cite this repository”
 ├── nodef/   POSCAR (64 atoms); add POTCAR yourself  (+ disp_*/ after step 3)
 ├── cVac/    POSCAR (63 atoms); add POTCAR yourself
 ├── 2G/      POSCAR (63 atoms); add POTCAR yourself
