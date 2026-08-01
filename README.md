@@ -6,7 +6,7 @@ VASP forces.
 
 ## Host
 
-**Run VASP on Cluster**
+**Run VASP on Metis Cluster**
 
 Default parallel budget: **7 concurrent jobs × 8 MPI ranks = 56 cores**.
 
