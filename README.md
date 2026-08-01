@@ -64,7 +64,7 @@ See **[WORKFLOW.md](WORKFLOW.md)** for physics, steps, and environment variables
 
 ## How to cite
 
-If you use this workflow or the underlying defect physics, please cite:
+When using this workflow and the underlying defect physics, please cite:
 
 1. **Smirnova, Nourazar & Korzhavyi**, *Phys. Rev. B* **109**, L060103 (2024)  
    — reconstructed **2G** metal-vacancy ground state.  
