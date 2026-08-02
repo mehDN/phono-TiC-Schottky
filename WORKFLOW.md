@@ -111,29 +111,7 @@ Phonopy units: free energy in **kJ/mol of supercell**. Convert to eV with
 
 ---
 
-## 2. Why `phono_222` and `zerop` are not correct
-
-| issue | `phono_222` | `zerop` | fix in this workflow |
-|-------|-------------|---------|----------------------|
-| VASP mode for forces | `IBRION = 8` (DFPT) mixed with hundreds of finite-displacement `POSCAR-*` | same / mixed | **finite displacement**: `IBRION = -1`, `NSW = 0` |
-| DIM / supercell definition | `DIM = 1 1 1` on already-2×2×2 cell (OK) but mesh configs inconsistent | `DIM` randomly `1 1 1`, `2 2 2`, or FCC primitive `-2 2 2 …` for the *same* 64-atom POSCAR | one convention: **cell = supercell, `DIM = 1 1 1`** |
-| Symmetry | P1 because MD-relaxed coordinates break ideal Fm-3m | same | keep P1 for defects; document displacement count ≈ 3×N_atoms (or 6× with ±) |
-| Schottky script | factor 1.96875 is right, but applied only to vib energies, not full \(F\) | incomplete FORCE_SETS / missing thermal for some folders | `scripts/schottky_from_thermal.py` |
-| Quantity used | `energy` column (vib internal energy) in `get_Schtkyout.sh` | N/A | use **`free_energy`** for \(\Delta F\), **`energy`** only for \(\Delta U\) / ZPE |
-| Static DFT | not combined with vib result | OUTCARs from different settings | separate static single-point on each POSCAR |
-| Mesh for thermal | `MP = 32 32 32` on large cell | `48 48 48`, `65 65 65`, `67 67 67` mixed | one dense mesh + convergence check |
-| POTCAR / ENCUT consistency | ENCUT 500 OK | sometimes 400 eV AIMD settings bleed in | fixed templates ENCUT=500 |
-
-**Important limitation retained intentionally:** the POSCARs are already 2×2×2
-supercells (~8.67 Å). With `DIM = 1 1 1` the force-constant range cannot
-exceed that cell. For production-quality phonons one would rebuild from a
-primitive cell with `DIM = 2 2 2` or `3 3 3` (and ideally a 3×3×3 defect
-supercell as in the papers, \(N=108\)). This workflow matches the user’s
-requested 64/63-atom cells.
-
----
-
-## 3. Directory layout
+## 2. Directory layout
 
 ```
 phono/
@@ -176,7 +154,7 @@ Path on the shared filesystem (visible from Metis and other MSE machines):
 
 ---
 
-## 4. POTCAR (required — not in git)
+## 3. POTCAR (required — not in git)
 
 This project needs a concatenated **PBE PAW** `POTCAR` with **Ti then C**
 (matching the POSCAR species line). Files are **not committed** (see `.gitignore`
@@ -209,7 +187,7 @@ Step 0 of `run_workflow.sh` fails with a clear error if any structure is missing
 
 ---
 
-## 5. Host: Metis only (not Leto)
+## 4. Host: Metis only (not Leto)
 
 | | |
 |--|--|
@@ -237,7 +215,7 @@ Override (not recommended): `FORCE_HOST=1` — still prints a warning.
 
 ---
 
-## 6. Usage: `run_workflow.sh` (recommended)
+## 5. Usage: `run_workflow.sh` (recommended)
 
 All steps are orchestrated by **`phono/run_workflow.sh`**. Work **on Metis**
 from the `phono/` directory:
@@ -248,7 +226,7 @@ cd /slask/mehdin/dynamics/phono
 bash run_workflow.sh --help
 ```
 
-### 6.1 Parallel local VASP on Metis (56-core cap)
+### 5.1 Parallel local VASP on Metis (56-core cap)
 
 On Metis, `hostname` contains `metis` → **`RUN_MODE=metis`** (no SLURM).
 Jobs run with Intel oneAPI `mpirun` + `/prog/bin/vasp_std`, at low priority
@@ -297,7 +275,7 @@ MAX_JOBS=14 NPROC=4 bash scripts/submit_all_structures.sh
 After changing `NPROC` / `MAX_JOBS`, re-run `02_prepare_vasp_jobs.sh` so
 `r.sh` and `NPAR`/`NSIM` stay consistent.
 
-### 6.2 Common commands
+### 5.2 Common commands
 
 | command | what it does |
 |---------|----------------|
@@ -310,7 +288,7 @@ After changing `NPROC` / `MAX_JOBS`, re-run `02_prepare_vasp_jobs.sh` so
 | `bash scripts/submit_all_structures.sh` | Metis force pool only (all structures) |
 | `bash scripts/run_local_parallel.sh --status` | Pending / done / live `vasp_std` count |
 
-### 6.3 Pipeline steps (inside `run_workflow.sh`)
+### 5.3 Pipeline steps (inside `run_workflow.sh`)
 
 | step | action |
 |------|--------|
@@ -329,7 +307,7 @@ force sets are not collected. Resume with:
 bash run_workflow.sh --from 4
 ```
 
-### 6.4 Environment overrides
+### 5.4 Environment overrides
 
 ```bash
 # phonopy displacement amplitude (Å)
@@ -353,7 +331,7 @@ RUN_MODE=slurm ACCOUNT=myalloc NODES=1 NTASKS=32 WALLTIME=24:00:00 \
   VASP_CMD="mpprun vasp" bash run_workflow.sh --auto-submit
 ```
 
-### 6.5 PATH and finding phonopy
+### 5.5 PATH and finding phonopy
 
 Phonopy is often installed with `pip install --user` so the CLI lands in
 **`~/.local/bin`**, which is **not always on `PATH`**. That produces:
@@ -407,7 +385,7 @@ export PHONOPY_BIN="$HOME/.local/bin/phonopy"
 bash run_workflow.sh
 ```
 
-### 6.6 Output of step 6
+### 5.6 Output of step 6
 
 ```text
 results/schottky.dat
@@ -416,7 +394,7 @@ results/schottky.dat
 
 ---
 
-## 7. Manual step-by-step (same as `run_workflow.sh`, if needed)
+## 6. Manual step-by-step (same as `run_workflow.sh`, if needed)
 
 Use this only if you prefer to drive scripts individually. Prefer §6 otherwise.
 **All VASP steps below assume you are already on Metis.**
@@ -505,7 +483,7 @@ python3 scripts/schottky_from_thermal.py \
 
 ---
 
-## 8. Recommended VASP settings (templates)
+## 7. Recommended VASP settings (templates)
 
 **Forces (phonopy)** — base template plus Metis parallel tags injected at prepare:
 
@@ -544,7 +522,7 @@ block via `I_MPI_PIN_PROCESSOR_LIST`.
 
 ---
 
-## 9. Sanity checks
+## 8. Sanity checks
 
 1. **Host:** `hostname` contains `metis`; step 0 prints `TARGET: Metis only (not Leto)`.
 2. **POTCAR present** for `nodef`, `cVac`, `2G` (see §4 / `docs/POTCAR.md`); not tracked by git.
@@ -563,7 +541,7 @@ block via `I_MPI_PIN_PROCESSOR_LIST`.
 
 ---
 
-## 10. Relation to the papers (what this adds)
+## 9. Relation to the papers (what this adds)
 
 | paper | what they report | this workflow |
 |-------|------------------|---------------|
@@ -631,7 +609,7 @@ Plain-text:
 
 ---
 
-## 11. Quick start (Metis)
+## 10. Quick start (Metis)
 
 ```bash
 # ON METIS — do not use Leto
