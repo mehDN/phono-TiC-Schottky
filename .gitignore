@@ -35,3 +35,11 @@ nohup.out
 
 # VASP PAW potentials (licensed — do not commit; see README / WORKFLOW § POTCAR)
 **/POTCAR
+
+# Transient phonopy confs / test plots
+**/mesh_thermal.conf
+**/band_test.pdf
+**/nodef_bands.pdf
+results/*_phonopy-bandplot.pdf
+results/*.pid
+results/compute_schottky_thermal.log

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Demo: recompute Schottky vib term from existing phono_222 thermal yaml files
+# Demo: recompute Schottky F, S, Cv from existing phono_222 thermal yaml files
 # (illustrates the correct free_energy formula; does not re-run VASP).
 set -euo pipefail
 
@@ -24,7 +24,15 @@ python3 "$ROOT/scripts/schottky_from_thermal.py" \
   --edft-nodef -588.59548361 \
   --edft-cvac  -579.41447515 \
   --edft-2g    -574.37299057 \
-  --out "$OUT/schottky_demo_from_phono222.dat"
+  --out-dir "$OUT" \
+  --out "$OUT/schottky_demo_from_phono222.dat" \
+  --prefix schottky_demo
 
-echo "---- head of result ----"
-head -15 "$OUT/schottky_demo_from_phono222.dat"
+# Also keep the legacy single-file name as the combined table
+# (schottky_from_thermal already wrote schottky_demo_*.dat via --prefix)
+
+echo "---- free energy (head) ----"
+head -12 "$OUT/schottky_demo_free_energy.dat" 2>/dev/null \
+  || head -12 "$OUT/schottky_demo_from_phono222.dat"
+echo "---- entropy / Cv ----"
+ls -la "$OUT"/schottky_demo_*.dat 2>/dev/null || true
