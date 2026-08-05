@@ -5,7 +5,7 @@ for TiC (2×2×2 supercells: `nodef`, `cVac`, `2G`) with harmonic phonons
 (phonopy) and finite-displacement VASP forces — plus phonon band structures
 and a Schottky-combined band plot.
 
-## Host
+
 
 **Run VASP on Metis only** (`metis.mse.kth.se`).  
 Do **not** run this pipeline on Leto. Scripts refuse hostname `*leto*`.
