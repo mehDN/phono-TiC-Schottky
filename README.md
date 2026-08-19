@@ -2,8 +2,8 @@
 
 Compute the **Schottky pair formation free energy, entropy, and heat capacity**
 for TiC (2×2×2 supercells: `nodef`, `cVac`, `2G`) with harmonic phonons
-(phonopy) and finite-displacement VASP forces — plus phonon band structures
-and a Schottky-combined band plot.
+(phonopy) and finite displacement VASP forces — plus phonon band structures
+and a Schottky combined band plot.
 
 
 
