@@ -1,4 +1,4 @@
-# TiC Schottky free energy (phonopy + VASP)
+# TiC Schottky free energy (phonopy and VASP)
 
 Compute the **Schottky pair formation free energy, entropy, and heat capacity**
 for TiC (2×2×2 supercells: `nodef`, `cVac`, `2G`) with harmonic phonons
